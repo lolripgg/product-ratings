@@ -1,0 +1,55 @@
+# == Schema Information
+#
+# Table name: reviews
+#
+#  id         :uuid             not null, primary key
+#  author     :string           not null
+#  body       :string
+#  rating     :integer          not null
+#  title      :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  product_id :uuid             not null
+#
+# Indexes
+#
+#  index_reviews_on_product_id  (product_id)
+#  index_reviews_on_rating      (rating)
+#
+one_star:
+  author: Draco Malfoy
+  body: Quidditch Seeker, prefect, and member of the Inquisitorial Squad.
+  product_id: adedc25f-b826-48d6-881d-17e4f7ca9fe8
+  rating: 1
+  title: Slytherin student in Harry's year.
+
+two_star:
+  author: Neville Longbottom
+  body: Member of Dumbledore's Army.
+  product_id: adedc25f-b826-48d6-881d-17e4f7ca9fe8
+  rating: 2
+  title: Gryffindor student in Harry's year.
+
+three_star:
+  author: Hermione Granger
+  body: Prefect and co-founder of Dumbledore's Army.
+  product_id: 3236c058-84f1-4ec8-bee1-fb835d6f0514
+  rating: 3
+  title: Muggle-born Gryffindor student in Harry's year and one of his best friends.
+
+four_star:
+  author: Harry Potter
+  body: >
+    Orphaned son of James and Lily Potter. Gryffindor student at Hogwarts, and co-founder
+    and first leader of Dumbledore's Army. The husband of Ginny Weasley, father of James
+    Sirius, Albus Severus and Lily Luna Potter.
+  product_id: 3236c058-84f1-4ec8-bee1-fb835d6f0514
+  rating: 4
+  title: The main character of the series.
+
+five_star:
+  author: Albus Dumbledore
+  body: Founder of the Order of the Phoenix. Killed by Severus Snape on Dumbledore's request.
+  product_id: 3236c058-84f1-4ec8-bee1-fb835d6f0514
+  rating: 5
+  title: Transfiguration professor in Tom Riddle's time, and Hogwarts headmaster in Harry Potter's time.

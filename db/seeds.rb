@@ -5,6 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Review.delete_all
+Product.delete_all
+
+products = []
+
 5.times do |i|
-  Product.create(name: "product-#{i}", description: "Product #{i}")
+  products << Product.create!(name: "Product #{i}", description: "Product description #{i}")
+end
+
+10.times do |i|
+  products.each_with_index do |product, j|
+    Review.create!(
+      author: "author-#{i}",
+      body: "Body text",
+      product_id: product.id,
+      rating: j + 1,
+      title: "Review title",
+    )
+  end
+end
+
+Product.all.each do |product|
+  UpdateAverageProductRating.new.perform(product.id)
 end

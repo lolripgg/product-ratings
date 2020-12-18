@@ -14,14 +14,21 @@
 #  index_products_on_average_rating  (average_rating)
 #  index_products_on_name            (name) UNIQUE
 #
-one:
-  average_rating: 1.0
-  id: adedc25f-b826-48d6-881d-17e4f7ca9fe8
-  name: Product One
-  description: An exceptionally well-written description.
+class ProductSerializer
+  attr_reader :product
 
-two:
-  average_rating: 5.0
-  id: 3236c058-84f1-4ec8-bee1-fb835d6f0514
-  name: Product Two
-  description: A description of lesser quality.
+  def initialize(product)
+    @product = product
+  end
+
+  def serialize
+    {
+      average_rating: product.average_rating,
+      created_at: product.created_at.iso8601,
+      description: product.description,
+      id: product.id,
+      name: product.name,
+      updated_at: product.updated_at.iso8601,
+    }
+  end
+end
